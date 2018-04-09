@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>Главная</title>
+	<title>Шаг 2</title>
 	<link rel="stylesheet" href="css/ui-kit.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
@@ -26,95 +26,28 @@
 	</header>
 
 	<div class="wrapper wrapper__body">
-		<div class="page-main container_theme_grey">
-			<div class="page-main__head clearfix">
-				<h1 class="title-h1 page-main__title-h1">Пакеты приложений</h1>
-				<form class="search-form" name="search-form">
-					<input class="search-form__input textfield" type="text" name="search" placeholder="Поиск приложения">
-					<button class="search__button">
-						<svg class="search__icon">
-							<use xlink:href="#search"></use>
-						</svg>
-					</button>
-				</form>
+		<div class="order container_theme_grey">
+			<div class="stage order__stage">
+				<div class="stage-number stage-number_done">1</div>
+				<div class="stage-line"></div>
+				<div class="stage-number stage-number_done">2</div>
+				<div class="stage-line"></div>
+				<div class="stage-number stage-number_done">3</div>
+				<div class="stage-line"></div>
+				<div class="stage-number stage-number_current">4</div>
 			</div>
-			<div class="page-main__body">
-				<div class="category clearfix">
-					<div class="category__item item-responsive item-4">
-						<div class="category__img" style="background-image: url(assets/shot-1.jpg);"></div>
-						<a href="#" class="category__link">СТАНДАРТНЫЙ ПАКЕТ</a>
-						<time class="category__date">08 aпреля 2012</time>
-					</div>
-					<div class="category__item item-responsive item-4">
-						<div class="category__img" style="background-image: url(assets/shot-2.jpg);"></div>
-						<a href="#" class="category__link">НОВЫЙ ЦФТ-БАНК</a>
-						<time class="category__date">09 сентября 2016</time>
-					</div>
-					<div class="category__item item-responsive item-4">
-						<div class="category__img" style="background-image: url(assets/shot-3.jpg);"></div>
-						<a href="#" class="category__link">КАТАЛОГ РАЗРАБОТОК</a>
-						<time class="category__date">03 марта 2015</time>
-					</div>
-				</div>
-				<div class="category-type clearfix">
-					<div class="category-type__item item-responsive item-6">
-						<h2 class="title-h2 category-type__title-h2">МНОГОПОТОКОВЫЕ ПРИЛОЖЕНИЯ<svg class="title-h2__icon"><use xlink:href="#icon-arrow"></use></svg></h2>
-						<ul class="category-type__list">
-							<li class="category-type__list-item category-type__list-item_work_icon">
-								<a class="category-type__link" href="#">
-									<span class="category-type__caption">Финансовый мониторинг</span>
-									приложений: 5
-								</a>
-							</li>
-							<li class="category-type__list-item category-type__list-item_work_icon">
-								<a class="category-type__link" href="#">
-									<span class="category-type__caption">Бухгалтерский учет</span>
-									приложений: 2
-								</a>
-							</li>
-							<li class="category-type__list-item category-type__list-item_work_icon">
-								<a class="category-type__link" href="#">
-									<span class="category-type__caption">Кредитование</span>
-									приложений: 12
-								</a>
-							</li>
-							<li class="category-type__list-item category-type__list-item_work_icon">
-								<a class="category-type__link" href="#">
-									<span class="category-type__caption">Пластиковые карты</span>
-									приложений: 29
-								</a>
-							</li>
-						</ul>
-					</div>
-					<div class="category-type__item item-responsive item-6">
-						<h2 class="title-h2 category-type__title-h2">ОДНОПОТОЧНЫЕ ПРИЛОЖЕНИЯ<svg class="title-h2__icon"><use xlink:href="#icon-arrow"></use></svg></h2>
-						<ul class="category-type__list">
-							<li class="category-type__list-item category-type__list-item_education_icon">
-								<a class="category-type__link" href="#">
-									<span class="category-type__caption">Расчетный центр</span>
-									приложений: 69
-								</a>
-							</li>
-							<li class="category-type__list-item category-type__list-item_education_icon">
-								<a class="category-type__link" href="#">
-									<span class="category-type__caption">Банковские гарантии</span>
-									приложений: 44
-								</a>
-							</li>
-							<li class="category-type__list-item category-type__list-item_education_icon">
-								<a class="category-type__link" href="#">
-									<span class="category-type__caption">Казначейство</span>
-									приложений: 80
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
+			<div class="success">
+				<span class="check">
+					<svg class="check__icon">
+						<use xlink:href="#check"></use>
+					</svg>
+				</span>
+				<p class="success__text">Поздравляем!<br>Ваш заказ успешно оформлен!</p>
+				<p class="success__text-manager"> В ближайшее время с Вами свяжется наш менеджер <br>для уточнения параметров заказа <br>и решения вопроса о встрече со специалистами.</p>
+				<a href="#" class="button success__button button_size-m button_theme_white">На главную</a>
 			</div>
-		</div>
 
 		</div>
-
 	</div>
 
 	<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" display="none">
@@ -123,8 +56,24 @@
 			<path fill-rule="evenodd" d="M6.25 11.513a5.258 5.258 0 1 1 0-10.515 5.258 5.258 0 0 1 0 10.515m9.657 3.633l-4.859-4.889a6.25 6.25 0 1 0-4.798 2.248 6.22 6.22 0 0 0 4.095-1.536l4.855 4.884a.5.5 0 0 0 .707-.707"/>
 		</symbol>
 
+		<symbol id="check" viewBox="0 0 9 6">
+			<path fill-rule="evenodd" d="M8.32.251a.856.856 0 0 1 0 1.212L4.035 5.75a.855.855 0 0 1-1.212 0L.25 3.178a.856.856 0 1 1 1.212-1.212L3.43 3.93 7.109.25a.856.856 0 0 1 1.211 0z"/>
+		</symbol>
+
 		<symbol id="icon-arrow" viewBox="0 0 7 13">
 				<path fill-rule="evenodd" d="M.002 6.206a.759.759 0 0 1 .221-.595L5.611.223a.761.761 0 1 1 1.077 1.078L1.783 6.206l4.905 4.905a.761.761 0 1 1-1.077 1.077L.223 6.801a.76.76 0 0 1-.22-.595z"/>
+		</symbol>
+
+		<symbol id="icon-minus" viewBox="0 0 10 3">
+				<path fill-rule="evenodd" d="M.884 1.456c0-.422.341-.763.762-.762h7.62a.761.761 0 1 1 0 1.524h-7.62a.762.762 0 0 1-.762-.762z"/>
+		</symbol>
+
+		<symbol id="icon-plus" viewBox="0 0 10 10">
+				<path fill-rule="evenodd" d="M3.81 3.81H.762a.761.761 0 1 0 0 1.523H3.81v3.048a.761.761 0 1 0 1.523 0V5.333h3.048a.761.761 0 1 0 0-1.524H5.333V.762a.761.761 0 1 0-1.523 0v3.047z"/>
+		</symbol>
+
+		<symbol id="icon-close" viewBox="0 0 13 13">
+				<path fill-rule="evenodd" d="M6.28 4.427L2.441.722a1.332 1.332 0 0 0-2.259.982c.006.34.143.68.407.936l3.837 3.705-3.705 3.837a1.332 1.332 0 0 0 .982 2.259c.34-.006.68-.143.936-.407l3.705-3.837 3.837 3.705c.53.512 1.374.498 1.885-.033a1.332 1.332 0 0 0-.033-1.885L8.197 6.28l3.705-3.836A1.332 1.332 0 0 0 11.87.557 1.332 1.332 0 0 0 9.984.59L6.28 4.427z"/>
 		</symbol>
 
 		<symbol id="logo" viewBox="0 0 145 60">
