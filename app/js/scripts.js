@@ -1,4 +1,4 @@
-// dz_js_1
+// home_work_js_1
 
 function getRandomNumber(upperLimit) {
   return Math.floor(Math.random() * upperLimit);
@@ -27,9 +27,9 @@ function getRandomNumber(upperLimit) {
 
 // setInterval(deleteRandomColor, 2000);
 
-// dz_js_1_end
+// home_work_1_end
 
-// dz_js_2
+// home_work_2
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -103,6 +103,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-// dz_js_2_end
+// home_work_2_end
 
 
