@@ -1,8 +1,8 @@
 // dz_js_1
 
-// function getRandomNumber(upperLimit) {
-//   return Math.floor(Math.random() * upperLimit);
-// }
+function getRandomNumber(upperLimit) {
+  return Math.floor(Math.random() * upperLimit);
+}
 
 // function getRandomElement() {
 // 	let randomNumber = getRandomNumber(lengthAllElements);
@@ -10,7 +10,7 @@
 // }
 
 // function paintRandomColor() {
-// 	allElements[getRandomElement()].style.backgroundColor = "rgb(" + getRandomNumber(255) + ", " + getRandomNumber(255) + ", " + getRandomNumber(255) + ")";
+// 	allElements[getRandomElement()].style.backgroundColor = "rgb(".concat(getRandomNumber(256), ", ", getRandomNumber(256), ", ",getRandomNumber(256), ")");
 // }
 
 // function deleteRandomColor() {
@@ -31,53 +31,78 @@
 
 // dz_js_2
 
-var elementPackageWrap = document.querySelector('.category'),
-		elementPackage = document.createElement('div'),
-	  elementPackageImg = document.createElement('div'),
-		elementPackageLink = document.createElement('a'),
-		elementPackageDate = document.createElement('time');
+document.addEventListener("DOMContentLoaded", function() {
 
-elementPackage.appendChild(elementPackageImg);
-elementPackage.appendChild(elementPackageLink);
-elementPackage.appendChild(elementPackageDate);
-elementPackageWrap.appendChild(elementPackage);
+	function createPackage({img, name, date}) {
 
-elementPackage.className = 'category__item item-responsive item-4';
-elementPackageImg.className = 'category__img';
-elementPackageLink.className = 'category__link';
-elementPackageDate.className = 'category__date';
+		let packagesWrap = document.querySelector('.category'),
+				package = document.createElement('div'),
+				packageImg = document.createElement('div'),
+				packageName = document.createElement('a'),
+				packageDate = document.createElement('time');
 
-elementPackageImg.style.backgroundImg = 'url(assets/' + this.img + ')';
-elementPackageLink.innerHTML = this.link;
-elementPackageDate.innerHTML = this.date;
+		package.className = 'category__item item-responsive item-4 fade';
+		packageImg.className = 'category__img';
+		packageName.className = 'category__link';
+		packageDate.className = 'category__date';
 
-function Obj(img, link, date) {
-	this.img = img;
-	this.link = link;
-	this.date = date;
-}
+		package.appendChild(packageImg);
+		package.appendChild(packageName);
+		package.appendChild(packageDate);
+		packagesWrap.appendChild(package);
 
-var elem1 = new Obj();
-var elem2 = new Obj();
-var elem3 = new Obj();
+		packagesWrap.style.maxHeight = '1000px';
+		packageImg.style.backgroundImage = 'url(assets/'.concat(img, ')') ;
+		packageName.innerHTML = name;
+		packageDate.innerHTML = date;
 
-function getRandomNumber(upperLimit) {
-  return Math.floor(Math.random() * upperLimit);
-}
+	}
 
-var arr = {
-	 	elem1: ('shot-1.jpg', 'СТАНДАРТНЫЙ ПАКЕТ', '08 aпреля 2012'),
-		elem2: ('shot-2.jpg', 'НОВЫЙ ЦФТ-БАНК', '09 сентября 2016'),
-		elem3: ('shot-3.jpg', 'КАТАЛОГ РАЗРАБОТОК', '03 марта 2015'),
-}
-console.log(arr.elem1);
 
-function getRandomElements() {
-	var arrLength = arr.length;
-	var xx = arr[getRandomNumber(arrLength),getRandomNumber(arrLength),getRandomNumber(arrLength)];
+	function checkAddedPackages() {
 
-}
+		let parentPackagesLength = document.querySelector('.category').children.length;
 
-setInterval(getRandomElements, 2000);
+		if (parentPackagesLength > 2) {
+			clearInterval(addPackage);
+			return false;
+		}
+
+	}
+
+
+	function addRandomPackage() {
+
+		let packageContentLength = packageContent.length,
+				randomPackageContent = packageContent[getRandomNumber(packageContentLength)];
+
+		createPackage(randomPackageContent);
+
+		checkAddedPackages();
+
+	}
+
+
+	let packageContent = [
+
+		{img: 'shot-1.jpg', name: 'Стандартный пакет', date: '08 aпреля 2012'},
+		{img: 'shot-2.jpg', name: 'Новый ЦФТ-банк', date: '09 сентября 2016'},
+		{img: 'shot-3.jpg', name: 'Каталог разработок', date: '13 января 2015'},
+		{img: 'shot-4.jpg', name: 'Автоплатежи', date: '23 марта 2015'},
+		{img: 'shot-5.jpg', name: 'Доверительное управление', date: '15 июня 2015'},
+		{img: 'shot-6.jpg', name: 'Выплаты АСВ', date: '17 июля 2015'},
+		{img: 'shot-7.jpg', name: 'Срочные вклады', date: '26 октября 2015'},
+		{img: 'shot-8.jpg', name: 'Пенсионная карта', date: '30 ноября 2015'},
+		{img: 'shot-9.jpg', name: 'Оптимальный', date: '04 августа 2015'},
+		{img: 'shot-10.jpg', name: 'Премиальный 5', date: '19 мая 2015'},
+
+	]
+
+
+	let addPackage = setInterval(addRandomPackage, 500);
+
+});
+
+// dz_js_2_end
 
 

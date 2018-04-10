@@ -166,6 +166,40 @@ a:active {
 .item-8 {
 	max-width: 66.666667%;
 }
+
+.category {
+	transition: all 1s ease 0s;
+	max-height: 0;
+	overflow: hidden;
+}
+
+@-webkit-keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.fade {
+	-webkit-animation-name: fade;
+	animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
 .category__img {
 	height: 196px;
 	background-repeat: no-repeat;
