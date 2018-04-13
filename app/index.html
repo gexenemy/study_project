@@ -39,26 +39,27 @@
 				</form>
 			</div>
 			<div class="page-main__body">
-				<div class="category clearfix">
-					<!-- <div class="category__item item-responsive item-4">
-						<div class="category__img" style="background-image: url(assets/shot-1.jpg);"></div>
-						<a href="#" class="category__link">СТАНДАРТНЫЙ ПАКЕТ</a>
-						<time class="category__date">08 aпреля 2012</time>
+				<div class="slider">
+					<div class="slider-body-wrap">
+						<div class="sliderBody"></div>
 					</div>
-					<div class="category__item item-responsive item-4">
-						<div class="category__img" style="background-image: url(assets/shot-2.jpg);"></div>
-						<a href="#" class="category__link">НОВЫЙ ЦФТ-БАНК</a>
-						<time class="category__date">09 сентября 2016</time>
+					<div class="slider-dots"></div>
+					<div class="slider__buttons">
+						<button class="slider__button slider__button-left">
+							<svg class="slider__arrow slider__arrow_left">
+								<use xlink:href="#icon-arrow-left"></use>
+							</svg>
+						</button>
+						<button class="slider__button slider__button-right">
+							<svg class="slider__arrow slider__arrow_right">
+								<use xlink:href="#icon-arrow-right"></use>
+							</svg>
+						</button>
 					</div>
-					<div class="category__item item-responsive item-4">
-						<div class="category__img" style="background-image: url(assets/shot-3.jpg);"></div>
-						<a href="#" class="category__link">КАТАЛОГ РАЗРАБОТОК</a>
-						<time class="category__date">03 марта 2015</time>
-					</div> -->
 				</div>
 				<div class="category-type clearfix">
 					<div class="category-type__item item-responsive item-6">
-						<h2 class="title-h2 category-type__title-h2">МНОГОПОТОКОВЫЕ ПРИЛОЖЕНИЯ<svg class="title-h2__icon"><use xlink:href="#icon-arrow"></use></svg></h2>
+						<h2 class="title-h2 category-type__title-h2">МНОГОПОТОКОВЫЕ ПРИЛОЖЕНИЯ<svg class="title-h2__icon"><use xlink:href="#icon-arrow-left"></use></svg></h2>
 						<ul class="category-type__list">
 							<li class="category-type__list-item category-type__list-item_work_icon">
 								<a class="category-type__link" href="#">
@@ -87,7 +88,7 @@
 						</ul>
 					</div>
 					<div class="category-type__item item-responsive item-6">
-						<h2 class="title-h2 category-type__title-h2">ОДНОПОТОЧНЫЕ ПРИЛОЖЕНИЯ<svg class="title-h2__icon"><use xlink:href="#icon-arrow"></use></svg></h2>
+						<h2 class="title-h2 category-type__title-h2">ОДНОПОТОЧНЫЕ ПРИЛОЖЕНИЯ<svg class="title-h2__icon"><use xlink:href="#icon-arrow-left"></use></svg></h2>
 						<ul class="category-type__list">
 							<li class="category-type__list-item category-type__list-item_education_icon">
 								<a class="category-type__link" href="#">
@@ -123,8 +124,12 @@
 			<path fill-rule="evenodd" d="M6.25 11.513a5.258 5.258 0 1 1 0-10.515 5.258 5.258 0 0 1 0 10.515m9.657 3.633l-4.859-4.889a6.25 6.25 0 1 0-4.798 2.248 6.22 6.22 0 0 0 4.095-1.536l4.855 4.884a.5.5 0 0 0 .707-.707"/>
 		</symbol>
 
-		<symbol id="icon-arrow" viewBox="0 0 7 13">
+		<symbol id="icon-arrow-left" viewBox="0 0 7 13">
 				<path fill-rule="evenodd" d="M.002 6.206a.759.759 0 0 1 .221-.595L5.611.223a.761.761 0 1 1 1.077 1.078L1.783 6.206l4.905 4.905a.761.761 0 1 1-1.077 1.077L.223 6.801a.76.76 0 0 1-.22-.595z"/>
+		</symbol>
+
+		<symbol id="icon-arrow-right" viewBox="0 0 7 13">
+				<path fill-rule="evenodd" d="M6.91 6.206a.759.759 0 0 0-.222-.595L1.301.223A.761.761 0 1 0 .223 1.301l4.905 4.905L.223 11.11a.761.761 0 1 0 1.078 1.077l5.387-5.387a.76.76 0 0 0 .222-.595z"/>
 		</symbol>
 
 		<symbol id="logo" viewBox="0 0 145 60">
@@ -135,6 +140,20 @@
 			</g>
 		</symbol>
 	</svg>
+
+	<template id="slider-item">
+		<div class="slider-item fade">
+			<div class="slider-item__img"></div>
+			<a href="#" class="slider-item__link"></a>
+			<time class="slider-item__date"></time>
+		</div>
+	</template>
+
+	<template id="slider-dot">
+		<span class="slider-dot" data-index="">
+		</span>
+	</template>
+
 	<script type="text/javascript" src="js/scripts.js"></script>
 </body>
 </html>
