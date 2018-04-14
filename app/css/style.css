@@ -171,11 +171,11 @@ a:active {
 	position: relative;
 }
 
-.slider-body-wrap {
+.slider__body-wrap {
 	overflow: hidden;
 }
 
-.sliderBody {
+.slider__body {
 	position: relative;
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -185,7 +185,7 @@ a:active {
 	transition: all ease 0.75s;
 	left: 0;
 }
-.slider-dots {
+.slider__dots {
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
@@ -194,7 +194,7 @@ a:active {
 	justify-content: center;
 	margin-top: 15px;
 }
-.slider-dot {
+.slider__dot {
 	width: 14px;
 	height: 14px;
 	border-radius: 100%;
@@ -205,7 +205,7 @@ a:active {
 	box-shadow: inset 0 0 10px 0px #fff;
 }
 
-.slider-dot_active {
+.slider__dot_active {
 	background: #ffa500;
 	cursor: default;
 }

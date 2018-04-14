@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		currentName.innerHTML = name;
 		currentDate.innerHTML = date;
 
-		document.querySelector('.sliderBody').appendChild(template.content.cloneNode(true));
+		document.querySelector('.slider__body').appendChild(template.content.cloneNode(true));
 
 	}
 
@@ -99,18 +99,20 @@ document.addEventListener("DOMContentLoaded", function () {
 	function initializeSlider(item, padding) {
 
 		const sliderWidth = document.querySelector('.slider').clientWidth,
-					slider = document.querySelector('.sliderBody'),
+					slider = document.querySelector('.slider__body'),
 					slides = slider.querySelectorAll('.slider-item'),
-					sliderBodyLength = document.querySelector('.sliderBody').children.length,
-					dotsBody = document.querySelector('.slider-dots'),
+					sliderBodyLength = document.querySelector('.slider__body').children.length,
+					dotsBody = document.querySelector('.slider__dots'),
 					dotTemplate = document.querySelector('#slider-dot'),
-					dot = dotTemplate.content.querySelector('.slider-dot'),
+					dot = dotTemplate.content.querySelector('.slider__dot'),
 					buttonsBody = document.querySelector('.slider__buttons'),
 					button = document.querySelectorAll('.slider__button'),
 
 					slideWidth = parseInt(((sliderWidth + padding) / item).toFixed(2)),
 					sliderBodyWidth = parseInt((slideWidth * sliderBodyLength).toFixed(2)),
 					sliderStage = parseInt((slideWidth * 2 - sliderBodyWidth).toFixed(2));
+
+		let move = 0;
 
 
 		for (let i = 0; i < slides.length; i++) {
@@ -123,26 +125,24 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 
 
-		dotsBody.children[1].classList.add('slider-dot_active');
+		dotsBody.children[1].classList.add('slider__dot_active');
 		slider.style.width = ''.concat(sliderBodyWidth, 'px');
 
 
-		const dots = document.querySelectorAll('.slider-dot'),
+		const dots = document.querySelectorAll('.slider__dot'),
 					dotsBodyLength = dotsBody.children.length;
-
-		let move = 0;
 
 
 		function dotsFunc(currentDot) {
 
-			const activeDot = document.querySelector('.slider-dot_active');
+			const activeDot = document.querySelector('.slider__dot_active');
 
 			let indexDot = parseInt(currentDot.dataset.index);
 
 			move = parseInt((-(slideWidth * (indexDot - 1))).toFixed(2));
 
-			activeDot.classList.remove('slider-dot_active');
-			currentDot.classList.add('slider-dot_active');
+			activeDot.classList.remove('slider__dot_active');
+			currentDot.classList.add('slider__dot_active');
 			slider.style.left = ''.concat(move, 'px');
 
 		}
@@ -150,8 +150,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		function sliderButton(button) {
 
-			const activeDot = document.querySelector('.slider-dot_active');
-			activeDot.classList.remove('slider-dot_active');
+			const activeDot = document.querySelector('.slider__dot_active');
+			activeDot.classList.remove('slider__dot_active');
 
 
 			if (button.classList.contains('slider__button-left')) {
@@ -160,12 +160,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 				if (activeDot.dataset.index == 0) {
 
-					dots[dotsBodyLength - 1].classList.add('slider-dot_active');
+					dots[dotsBodyLength - 1].classList.add('slider__dot_active');
 
 				}
 				else {
 
-					activeDot.previousElementSibling.classList.add('slider-dot_active');
+					activeDot.previousElementSibling.classList.add('slider__dot_active');
 
 				}
 
@@ -176,12 +176,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 				if (activeDot.dataset.index == dotsBodyLength - 1) {
 
-					dots[0].classList.add('slider-dot_active');
+					dots[0].classList.add('slider__dot_active');
 
 				}
 				else {
 
-					activeDot.nextElementSibling.classList.add('slider-dot_active');
+					activeDot.nextElementSibling.classList.add('slider__dot_active');
 
 				}
 
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		dotsBody.addEventListener('click', function (event) {
 			const target = event.target;
-			if (target.className == 'slider-dot') {
+			if (target.className == 'slider__dot') {
 				dotsFunc(target);
 			}
 		});
