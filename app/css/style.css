@@ -85,7 +85,9 @@ a:active {
 	text-transform: uppercase;
 	text-decoration: none;
 }
-
+.menu__link_active {
+	color: #ed1b2f;
+}
 .page-main {
 	padding: 40px 64px;
 }
@@ -395,6 +397,14 @@ a:active {
 	color: #8c999f;
 	font-size: 20px;
 	text-decoration: none;
+}
+
+.left-menu__link:hover {
+	text-decoration: none;
+}
+
+.left-menu__link_active {
+	color: #ed1b2f;
 }
 
 .section {

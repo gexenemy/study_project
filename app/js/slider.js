@@ -1,102 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-	function addPackage({
-		img,
-		name,
-		date
-	}) {
-
-		const template = document.querySelector('#slider-item'),
-				  currentImg = template.content.querySelector('.slider-item__img'),
-				  currentName = template.content.querySelector('.slider-item__link'),
-				  currentDate = template.content.querySelector('.slider-item__date');
-
-		currentImg.style.backgroundImage = 'url(assets/'.concat(img, ')');
-		currentName.innerHTML = name;
-		currentDate.innerHTML = date;
-
-		document.querySelector('.slider__body').appendChild(template.content.cloneNode(true));
-
-	}
-
-
-	const packageContent = [
-
-		{
-			img: 'shot-1.jpg',
-			name: 'Стандартный пакет',
-			date: '08 aпреля 2012'
-		},
-		{
-			img: 'shot-2.jpg',
-			name: 'Новый ЦФТ-банк',
-			date: '09 сентября 2016'
-		},
-		{
-			img: 'shot-3.jpg',
-			name: 'Каталог разработок',
-			date: '13 января 2015'
-		},
-		{
-			img: 'shot-4.jpg',
-			name: 'Автоплатежи',
-			date: '23 марта 2015'
-		},
-		{
-			img: 'shot-5.jpg',
-			name: 'Доверительное управление',
-			date: '15 июня 2015'
-		},
-		{
-			img: 'shot-6.jpg',
-			name: 'Выплаты АСВ',
-			date: '17 июля 2015'
-		},
-		{
-			img: 'shot-7.jpg',
-			name: 'Срочные вклады',
-			date: '26 октября 2015'
-		},
-		{
-			img: 'shot-8.jpg',
-			name: 'Пенсионная карта',
-			date: '30 ноября 2015'
-		},
-		{
-			img: 'shot-9.jpg',
-			name: 'Оптимальный',
-			date: '04 августа 2015'
-		},
-		{
-			img: 'shot-10.jpg',
-			name: 'Премиальный 5',
-			date: '19 мая 2015'
-		},
-
-	]
-
-
-	function shuffleArray(array) {
-
-		for (let i = array.length - 1; i > 0; i--) {
-
-			let j = Math.floor(Math.random() * (i + 1));
-			[array[i], array[j]] = [array[j], array[i]];
-
-		}
-
-	}
-
-
-	shuffleArray(packageContent);
-
-
-	packageContent.forEach(function (currentPackage) {
-		addPackage(currentPackage);
-	});
-
-
-	function initializeSlider(item, padding) {
+export function initializeSlider(item, padding) {
 
 		const sliderWidth = document.querySelector('.slider').clientWidth,
 					slider = document.querySelector('.slider__body'),
@@ -162,8 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 					dots[dotsBodyLength - 1].classList.add('slider__dot_active');
 
-				}
-				else {
+				} else {
 
 					activeDot.previousElementSibling.classList.add('slider__dot_active');
 
@@ -219,7 +120,3 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 
 	}
-
-	initializeSlider(3, 20);
-
-});
