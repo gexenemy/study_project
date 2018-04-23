@@ -17,8 +17,8 @@
 			</a>
 			<nav class="menu">
 				<ul class="menu__list">
-					<li class="menu__item"><a class="menu__link" href="#">Главная</a></li>
-					<li class="menu__item"><a class="menu__link" href="#">Каталог приложений</a></li>
+					<li class="menu__item"><a class="menu__link" href="/">Главная</a></li>
+					<li class="menu__item"><a class="menu__link" href="/product.html">Каталог приложений</a></li>
 					<li class="menu__item"><a class="menu__link" href="#">О компании</a></li>
 				</ul>
 			</nav>
@@ -48,83 +48,14 @@
 						<th></th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<div class="table-order__img" style="background-image: url(assets/shot-2.jpg);"></div>
-						</td>
-						<td>
-							<a class="table-order__link" href="#">Новый ЦФТ-Банк</a>
-							<input id="checkbox1" class="checkbox" type="checkbox" checked="checked"><label for="checkbox1" class="label label_type_checkbox">установка и настройка</label>
-						</td>
-						<td>
-							<span class="table-order__price">$139,99</span>
-						</td>
-						<td>
-							<div class="counter">
-								<span class="counter__switch counter__switch-left">
-									<svg class="icon-sign icon-sign_minus">
-										<use xlink:href="#icon-minus"></use>
-									</svg>
-								</span>
-								<input type="text" name="count" value="1" class="counter__input">
-								<span class="counter__switch counter__switch-right">
-									<svg class="icon-sign icon-sign_plus">
-										<use xlink:href="#icon-plus"></use>
-									</svg>
-								</span>
-							</div>
-						</td>
-						<td><span class="table-order__cost">$139,99</span></td>
-						<td>
-							<span class="table-order__delete">
-								<svg class="icon-close icon-close_theme_grey">
-									<use xlink:href="#icon-close"></use>
-								</svg>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="table-order__img" style="background-image: url(assets/shot-2.jpg);"></div>
-						</td>
-						<td>
-							<a class="table-order__link" href="#">Новый ЦФТ-Банк</a>
-							<input id="checkbox2" class="checkbox" type="checkbox" checked="checked"><label for="checkbox2" class="label label_type_checkbox">установка и настройка</label>
-						</td>
-						<td>
-							<span class="table-order__price">$139,99</span>
-						</td>
-						<td>
-							<div class="counter">
-								<span class="counter__switch counter__switch-left">
-									<svg class="icon-sign icon-sign_minus">
-										<use xlink:href="#icon-minus"></use>
-									</svg>
-								</span>
-								<input type="text" name="count" value="1" class="counter__input">
-								<span class="counter__switch counter__switch-right">
-									<svg class="icon-sign icon-sign_plus">
-										<use xlink:href="#icon-plus"></use>
-									</svg>
-								</span>
-							</div>
-						</td>
-						<td><span class="table-order__cost">$139,99</span></td>
-						<td>
-							<span class="table-order__delete">
-								<svg class="icon-close icon-close_theme_grey">
-									<use xlink:href="#icon-close"></use>
-								</svg>
-							</span>
-						</td>
-					</tr>
+				<tbody class="table-order__body">
 				</tbody>
 				<tfoot>
 					<tr>
 						<td colspan="2"></td>
 						<td colspan="3">
-							<div class="table-order__total-cost">$549<span class="table-order__cent"> 99</span></div>
+							<!-- <div class="table-order__total-cost">$549<span class="table-order__cent"> 99</span></div> -->
+							<div class="table-order__total-cost"></div>
 							<button class="button order__button button_size-m button_theme_blue">Заказать</button>
 							<td></td>
 						</tr>
@@ -165,5 +96,44 @@
 		</symbol>
 
 	</svg>
+
+	<template id="basket-item">
+		<tr class="basket-item">
+			<td>
+				<div class="table-order__img"></div>
+			</td>
+			<td>
+				<div class="table-order__title"></div>
+				<input id="checkbox1" class="checkbox" type="checkbox" checked="checked"><label for="checkbox1" class="label label_type_checkbox">установка и настройка</label>
+			</td>
+			<td>
+				<span class="table-order__price"></span>
+			</td>
+			<td>
+				<div class="counter">
+					<span class="counter__switch counter__switch-left">
+						<svg class="icon-sign icon-sign_minus">
+							<use xlink:href="#icon-minus"></use>
+						</svg>
+					</span>
+					<input type="text" name="count" value="" class="counter__input">
+					<span class="counter__switch counter__switch-right">
+						<svg class="icon-sign icon-sign_plus">
+							<use xlink:href="#icon-plus"></use>
+						</svg>
+					</span>
+				</div>
+			</td>
+			<td><span class="table-order__cost"></span></td>
+			<td>
+				<span class="table-order__delete">
+					<svg class="icon-close icon-close_theme_grey">
+						<use xlink:href="#icon-close"></use>
+					</svg>
+				</span>
+			</td>
+		</tr>
+	</template>
+	<script type="module" src="js/basket.js"></script>
 </body>
 </html>

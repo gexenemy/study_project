@@ -15,6 +15,10 @@
 					<use xlink:href="#logo"></use>
 				</svg>
 			</a>
+			<div class="basket">
+				<div class="basket__app">Приложений: <span class="basket__app-total">0</span></div>
+				<a href="/step_1.html" class="basket__sum">Общая стоимость: <span class="basket__sum-total">0</span></a>
+			</div>
 			<nav class="menu">
 				<ul class="menu__list">
 					<li class="menu__item"><a class="menu__link" href="/">Главная</a></li>
@@ -44,6 +48,7 @@
 						<div class="item-responsive item-7">
 							<time class="description__date"></time>
 							<ul class="description__list"></ul>
+							<div class="description__price">Цена: <span class="description__price-cost"></span></div>
 							<p class="description__requirement"></p>
 						</div>
 						<div class="item-responsive item-5">
@@ -84,7 +89,7 @@
 
 
 	<template id="left-menu__item">
-			<li class="left-menu__item"><a href="#" data-id="" class="left-menu__link"></a></li>
+			<li class="left-menu__item"><a href="" data-id="" class="left-menu__link"></a></li>
 		</template>
 
 			<template id="description__list-item">

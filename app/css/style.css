@@ -48,6 +48,7 @@ a:active {
 	padding: 22px 0;
 	background: #fff;
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+	position: relative;
 }
 
 .logo {
@@ -59,7 +60,16 @@ a:active {
 	width: 145px;
 	height: 60px;
 }
-
+.basket {
+	position: absolute;
+	left: 400px;
+	top: 25px;
+}
+.basket__sum-total,
+.basket__app-total {
+	color: red;
+	font-weight: bold;
+}
 .menu {
 	float: right;
 	padding: 15px 0;
@@ -247,6 +257,8 @@ a:active {
 	position: relative;
 	z-index: -1;
 }
+
+
 
 .slider__button:hover .slider__arrow {
 	fill:#ffa500;
@@ -513,7 +525,10 @@ a:active {
 .description__title {
 	color: #4f5659;
 }
-
+.description__price {
+	margin: 10px 0;
+	font-size: 22px;
+}
 .description__img {
 	background-repeat: no-repeat;
 	background-position: 50%;
@@ -556,4 +571,297 @@ a:active {
 	margin: 0 15px 0 2px;
 	font-size: 20px;
 	color: #4d5762;
+}
+
+
+.order {
+	padding: 66px 80px;
+}
+
+.order__stage {
+	margin-bottom: 70px;
+}
+
+.table-order {
+	font-size: 12px;
+	width: 100%;
+	border-collapse: collapse;
+	color: #212121;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+.table-order thead tr {
+	border-bottom: 1px solid #e8e9ed;
+}
+.table-order thead tr th {
+	color: #9fa3a7;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 15px 10px;
+}
+
+.table-order thead tr th:first-child {
+	padding: 15px 0;
+}
+.table-order thead tr th:nth-child(5),
+.table-order thead tr th:nth-child(3) {
+	text-align: center;
+}
+.table-order tbody tr {
+	border-bottom: 1px solid #e8e9ed;
+}
+.table-order tbody tr td {
+	padding: 30px 10px;
+}
+.table-order tbody tr td:first-child {
+	width: 150px;
+	padding: 30px 0;
+}
+.table-order tbody tr td:nth-child(2) {
+	width: 280px;
+}
+.table-order tbody tr td:nth-child(3) {
+	width: 164px;
+	text-align: center;
+}
+.table-order tbody tr td:nth-child(4) {
+	width: 228px;
+	text-align: center;
+}
+.table-order tbody tr td:nth-child(5) {
+	width: 132px;
+	text-align: center;
+}
+.table-order tbody tr td:nth-child(6) {
+	width: 66px;
+	text-align: right;
+}
+
+.table-order tfoot tr td{
+	text-align: center;
+	padding: 50px 0;
+}
+
+.table-order__img {
+	height: 90px;
+	width: 120px;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: cover;
+}
+
+.table-order__title {
+	font-size: 22px;
+	display: block;
+	text-decoration: none;
+	color: #2c2c2c;
+}
+
+.table-order__price {
+	font-size: 16px;
+}
+
+.table-order__cost {
+	font-size: 16px;
+}
+
+.icon-close_theme_grey {
+	position: relative;
+	z-index: -1;
+	pointer-events: none;
+}
+
+.icon-sign {
+	z-index: -1;
+	pointer-events: none;
+}
+.counter__switch {
+	z-index: 1;
+}
+.table-order__delete {
+	border-radius: 100%;
+	display: inline-block;
+	padding: 5px;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	position: relative;
+	z-index: 1;
+	border: 1px solid #868686;
+}
+
+
+.table-order__total-cost {
+	color: #292929;
+	display: inline-block;
+	font-size: 36px;
+	line-height: 31px;
+	vertical-align: middle;
+	margin-right: 70px;
+}
+
+.table-order__cent {
+	font-size: 19px;
+	color: #9fa3a7;
+	position: relative;
+	top: -11px;
+}
+
+.order__button {
+	vertical-align: middle;
+}
+.order__title {
+	margin: 0 0 28px;
+}
+.order__textfield {
+	width: 100%;
+	background-color: #fafafa;
+	margin-bottom: 12px;
+}
+.counter__input {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+.label__order {
+	font-size: 14px;
+}
+
+.button_position_right {
+	float: right;
+	margin-right: 70px;
+}
+
+.cards-wrap {
+	margin-bottom: 40px;
+}
+
+.card {
+	width: 430px;
+	margin: 0 auto;
+	position: relative;
+	padding: 29px 24px;
+	border-radius: 8px;
+}
+
+.card-main {
+	z-index: 10;
+}
+
+.card_theme_white {
+	border: solid 2px #d8d8d8;
+	background: #fff;
+}
+
+.card_theme_white:after {
+	position: absolute;
+	right: 24px;
+	top: 24px;
+	width: 61px;
+	height: 36px;
+	content: '';
+	background: url(../img/master-card.svg) 0 0 no-repeat;
+}
+.card_theme_white:before {
+	position: absolute;
+	right: 28px;
+	top: 78px;
+	width: 58px;
+	height: 19px;
+	content: '';
+	background: url(../img/visa.svg) 0 0 no-repeat;
+}
+
+.card-textfield {
+	min-width: 0;
+	margin-bottom: 10px;
+}
+.name-textfield {
+	margin-top: 30px;
+	margin-bottom: 0;
+}
+
+.card-cvv {
+	height: 265px;
+	margin-top: -245px;
+	right: -110px;
+	z-index: 5;
+	border: solid 1px #e8e9ed;
+}
+.card-cvv:after {
+	position: absolute;
+	width: 100%;
+	height: 39px;
+	top: 35px;
+	right: 0;
+	background-color: #e8e9ed;
+	content: '';
+}
+.card_theme_grey {
+	background-color: #fafafa;
+}
+
+.cvv-textfield {
+	width: 76px;
+	position: absolute;
+	right: 24px;
+	top: 95px;
+}
+
+.card-cvv__text {
+	width: 76px;
+	right: 24px;
+	top: 155px;
+	color: #c8c8c8;
+	display: inline-block;
+	position: absolute;
+	font-size: 12px;
+	line-height: 22px;
+}
+
+.button_position_left {
+	float: left;
+	margin-left: 70px;
+}
+
+.success {
+	text-align: center;
+}
+
+.check {
+	height: 79px;
+	width: 79px;
+	border: solid 3px #1e8bc3;
+	display: inline-block;
+	line-height: 86px;
+	border-radius: 100%;
+}
+
+.check__icon {
+	width: 40px;
+	height: 28px;
+	fill: #1e8bc3;
+}
+
+.success__text {
+	color: #212121;
+	font-size: 36px;
+	line-height: 48px;
+	margin: 20px 0 30px;
+}
+
+.success__text-manager {
+	font-size: 14px;
+	line-height: 26px;
+	color: #9fa3a7;
+}
+
+.success__button {
+	margin-top: 70px;
+	font-weight: bold;
 }

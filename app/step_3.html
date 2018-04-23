@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>Шаг 3</title>
+	<title>Шаг 2</title>
 	<link rel="stylesheet" href="css/ui-kit.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
@@ -30,37 +30,50 @@
 			<div class="stage order__stage">
 				<div class="stage-number stage-number_done">1</div>
 				<div class="stage-line"></div>
-				<div class="stage-number stage-number_done">2</div>
+				<div class="stage-number stage-number_current">2</div>
 				<div class="stage-line"></div>
-				<div class="stage-number stage-number_done">3</div>
+				<div class="stage-number stage-number_inactive">3</div>
 				<div class="stage-line"></div>
-				<div class="stage-number stage-number_current">4</div>
+				<div class="stage-number stage-number_inactive">4</div>
 			</div>
-			<form class="card-form clearfix">
-				<div class="cards-wrap">
-					<div class="card card-main card_theme_white">
+			<form class="contacts-form clearfix">
+				<div class="title order__title">КОНТАКТНАЯ ИНФОРМАЦИЯ</div>
+				<div class="row clearfix">
+					<div class="item-responsive item-9">
 						<div class="row clearfix">
-							<div class="item-responsive item-8">
-								<input class="textfield order__textfield card-textfield" type="text" name="number" placeholder="Номер карты">
+							<div class="item-responsive item-6">
+								<input class="textfield order__textfield" type="text" name="surname" placeholder="Фамилия">
+							</div>
+							<div class="item-responsive item-6">
+								<input class="textfield order__textfield" type="text" name="name" placeholder="Имя Отчество">
+							</div>
+						</div>
+						<div class="row clearfix">
+							<div class="item-responsive item-6">
+								<input class="textfield order__textfield" type="tel" name="phone" placeholder="Номер телефона">
+							</div>
+							<div class="item-responsive item-6">
+								<input class="textfield order__textfield" type="email" name="email" placeholder="E-mail">
 							</div>
 						</div>
 						<div class="row clearfix">
 							<div class="item-responsive item-4">
-								<input class="textfield order__textfield card-textfield" type="text" name="month" placeholder="Месяц">
+								<input class="textfield order__textfield" type="text" name="org" placeholder="Организация">
 							</div>
 							<div class="item-responsive item-4">
-								<input class="textfield order__textfield card-textfield" type="text" name="year" placeholder="Год">
+								<input class="textfield order__textfield" type="text" name="inn" placeholder="ИНН">
+							</div>
+							<div class="item-responsive item-4">
+								<input class="textfield order__textfield" type="text" name="city" placeholder="Город">
 							</div>
 						</div>
-						<input class="textfield order__textfield card-textfield name-textfield" type="text" name="name" placeholder="Фамилия Имя владельца карты">
 					</div>
-					<div class="card card-cvv card_theme_grey clearfix">
-						<input class="textfield card-textfield cvv-textfield" type="text" name="cvv" placeholder="CVV">
-						<span class="card-cvv__text">Три цифры на обратной стороне</span>
+					<div class="item-responsive item-3">
+						<input id="radio1" class="radio" name="radio" type="radio"><label for="radio1" class="label label__order label_type_radio">Быстрая установка</label>
+						<input id="radio2" class="radio" name="radio" type="radio"><label for="radio2" class="label label__order label_type_radio">Отложенная установка</label>
 					</div>
 				</div>
-				<button class="button order__button button_position_left button_size-m button_theme_white">Корзина</button>
-				<button class="button order__button button_position_right button_size-m button_theme_blue">Оплатить</button>
+				<button class="button order__button button_position_right button_size-m button_theme_blue">Отправить</button>
 			</form>
 		</div>
 	</div>
