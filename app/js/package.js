@@ -146,16 +146,31 @@ export class Menu {
 			list.appendChild(template.content.cloneNode(true));
 		});
 		activeLink();
+		// localStorage.clear
 		this.switchMenuItem(list);
 		const app = new AppDesciption();
+		app.addPageDesciption(jsonPage[0].id)
+			.then(function(jsonPage) {
+				const basket = new Basket();
+				basket.clicker(jsonPage)
+			});
 	}
 
 
 	switchMenuItem(list) {
 		list.addEventListener('click', function(event) {
+			this.target = event.target;
 
 			const switchLink = new SwitchLink();
 			const changeDescr = new DisplayDescr();
+
+			if (this.target.classList.contains('left-menu__link')) {
+				changeDescr.descrLoad()
+				.then(function(jsonPage) {
+					const basket = new Basket();
+					basket.clicker(jsonPage)
+				});
+			}
 		});
 	}
 }
@@ -183,41 +198,42 @@ export class AppDesciption {
 
 	constructor() {
 		this.hrefGET = splitGETString();
-		this.addPageDesciption();
+		this.first
 	}
 
-	addPageDesciption() {
+	addPageDesciption(first) {
 		const xhrPage = new XMLHttpRequest(),
-					pars = new ParseDescr(xhrPage);
+					parse = new ParseDescr(xhrPage);
 
-		const promise = new Promise((resolve, reject) => {
-			xhrPage.open("GET", '../api/app_package'.concat(((this.hrefGET.id) ? this.hrefGET.id : 1), '.json'), true);
+		return new Promise((resolve, reject) => {
+			xhrPage.open("GET", '../api/app_package'.concat(((this.hrefGET.id) ? this.hrefGET.id : first), '.json'), true);
 			xhrPage.send();
 
-			xhrPage.onload = () => pars.parsePackage(resolve);
+			xhrPage.onload = () => parse.parsePackage(resolve, reject);
 
 		});
-		// return promise
 	}
 
 }
 
 export class DisplayDescr {
 	constructor() {
-		this.descrLoad()
 	}
 
 	descrLoad(target) {
-		const xhr1 = new XMLHttpRequest();
+		const xhrPageNew = new XMLHttpRequest();
 		this.target = event.target;
 
 		if (this.target.classList.contains('left-menu__link')) {
 			const linkId = this.target.dataset.id,
-						pars1 = new ParseDescr(xhr1);
-			xhr1.open("GET", '../api/app_package'.concat(linkId, '.json'), true);
-			xhr1.send();
+						parseNew = new ParseDescr(xhrPageNew);
 
-			xhr1.onload = () => pars1.parsePackage(xhr1);
+			return new Promise((resolve, reject) => {
+				xhrPageNew.open("GET", '../api/app_package'.concat(linkId, '.json'), true);
+				xhrPageNew.send();
+
+				xhrPageNew.onload = () => parseNew.parsePackage(resolve, reject);
+			});
 		}
 
 	}
@@ -230,22 +246,25 @@ class ParseDescr {
 		this.xhr = xhr;
 	}
 
-	parsePackage(resolve) {
-		const jsonPage = JSON.parse(this.xhr.responseText);
-		jsonPage.forEach(function (cur) {
-			addDesciption(
-				cur.id,
-				cur.title,
-				cur.config,
-				cur.lastUpdate,
-				cur.requirement,
-				cur.guid,
-				cur.functions,
-				cur.price
-				);
-		});
-		const basket = new Basket();
-		basket.clicker(jsonPage)
+	parsePackage(resolve, reject) {
+		if (this.xhr.status === 200) {
+			const jsonPage = JSON.parse(this.xhr.responseText);
+			jsonPage.forEach(function (cur) {
+				addDesciption(
+					cur.id,
+					cur.title,
+					cur.config,
+					cur.lastUpdate,
+					cur.requirement,
+					cur.guid,
+					cur.functions,
+					cur.price
+					);
+			});
+			resolve(jsonPage);
+		} else {
+			reject(this.xhr.statusText);
+		}
 	}
 }
 
@@ -283,8 +302,6 @@ export class Basket {
 					countTotal = parseInt(count.innerHTML),
 					key = localStorage.key(i);
 			basket.innerHTML = (basketTotal + JSON.parse(key).price * parseInt(localStorage.getItem(key))).toFixed(2);
-			console.log(countTotal)
-			console.log(localStorage.getItem(key))
 			count.innerHTML = countTotal + parseInt(localStorage.getItem(key));
 		}
 	}

@@ -739,14 +739,33 @@ a:active {
 
 .cards-wrap {
 	margin-bottom: 40px;
+	position: relative;
 }
-
+.card-form {
+	position: relative;
+}
+.card-form_blur .card {
+  filter: blur(3px);
+  pointer-events: none;
+}
+.card-form_blur .cssload-thecube{
+	position: absolute;
+	left: 50%;
+	z-index: 20;
+	display: block;
+	top: 10%;
+}
+.blur {
+	position: absolute;
+}
 .card {
 	width: 430px;
 	margin: 0 auto;
 	position: relative;
 	padding: 29px 24px;
 	border-radius: 8px;
+	filter: blur(0px);
+	transition: all 0.2s ease 0s;
 }
 
 .card-main {
@@ -765,7 +784,7 @@ a:active {
 	width: 61px;
 	height: 36px;
 	content: '';
-	background: url(../img/master-card.svg) 0 0 no-repeat;
+	background: url(../assets/master-card.svg) 0 0 no-repeat;
 }
 .card_theme_white:before {
 	position: absolute;
@@ -774,7 +793,7 @@ a:active {
 	width: 58px;
 	height: 19px;
 	content: '';
-	background: url(../img/visa.svg) 0 0 no-repeat;
+	background: url(../assets/visa.svg) 0 0 no-repeat;
 }
 
 .card-textfield {
