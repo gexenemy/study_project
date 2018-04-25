@@ -163,6 +163,9 @@ a:active {
 	padding: 0 12px;
 	margin-bottom: 10px;
 }
+.item-3 {
+	max-width: 25%;
+}
 .item-4 {
 	max-width: 33.333333%;
 }
@@ -178,7 +181,9 @@ a:active {
 .item-8 {
 	max-width: 66.666667%;
 }
-
+.item-9 {
+	max-width: 75%;
+}
 .slider {
 	position: relative;
 }
@@ -701,6 +706,7 @@ a:active {
 	line-height: 31px;
 	vertical-align: middle;
 	margin-right: 70px;
+	width: 170px;
 }
 
 .table-order__cent {
@@ -727,6 +733,7 @@ a:active {
 	-ms-user-select: none;
 	-o-user-select: none;
 	user-select: none;
+	pointer-events: none;
 }
 .label__order {
 	font-size: 14px;
@@ -744,6 +751,9 @@ a:active {
 .card-form {
 	position: relative;
 }
+.blur {
+	position: relative;
+}
 .card-form_blur .card {
   filter: blur(3px);
   pointer-events: none;
@@ -755,8 +765,9 @@ a:active {
 	display: block;
 	top: 10%;
 }
-.blur {
-	position: absolute;
+.card-form_blur .item-responsive{
+	filter: blur(3px);
+  pointer-events: none;
 }
 .card {
 	width: 430px;
