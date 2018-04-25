@@ -124,10 +124,10 @@ export function initializeSlider(item, padding) {
 
 export class InitMain {
 	constructor() {
-		this.initxhr();
+		this.init();
 	}
 
-	initxhr() {
+	init() {
 		const xhr = new XMLHttpRequest();
 
 		return new Promise((resolve, reject) => {
@@ -400,6 +400,7 @@ class ParseDescr {
 	parsePackage(resolve, reject) {
 		if (this.xhr.status === 200) {
 			const jsonPage = JSON.parse(this.xhr.responseText);
+			console.log(jsonPage)
 			jsonPage.forEach(function (cur) {
 				addDesciption(
 					cur.id,
@@ -456,7 +457,6 @@ export class Basket {
 			count.innerHTML = countTotal + parseInt(localStorage.getItem(key));
 		}
 	}
-
 }
 
 
@@ -468,18 +468,43 @@ export class Form{
 	constructor() {
 		this.link = document.querySelector('.order__button');
 		this.form = document.querySelector('.blur');
-		this.direct(this.link, this.form);
+		this.inputs = document.querySelectorAll('.textfield');
+		this.direct(this.link, this.form, this.saveData, this.inputs);
+		this.returnData(this.inputs)
 	}
 
-	direct(link, form) {
+	direct(link, form, saveData, inputs) {
 		link.addEventListener('click', function(event){
 			event.preventDefault();
+			saveData(inputs)
 			form.classList.add('card-form_blur');
 			setTimeout(() => {
 				location.href = link.href
 			}, parseInt(Math.random() * 10000));
 		});
 	}
+
+	saveData(inputs) {
+		let data = {};
+		inputs.forEach(function(cur) {
+			data[cur.name] = cur.value;
+		});
+		localStorage.setItem('Данные формы', JSON.stringify(data));
+	}
+
+	returnData(inputs) {
+		const dataForm = localStorage.getItem('Данные формы');
+		if (!dataForm) {
+			return
+		}
+		const jsonData = [JSON.parse(dataForm)]
+		inputs.forEach(function(cur) {
+			let value = jsonData[0][cur.name]
+			cur.value = value || null;
+		});
+	}
+
+
 }
 
 
@@ -493,20 +518,25 @@ export class BasketPage {
 		this.price = this.template.content.querySelector('.table-order__price');
 		this.value = this.template.content.querySelector('.counter__input');
 		this.total = this.template.content.querySelector('.table-order__cost');
+		this.checkbox = this.template.content.querySelector('.checkbox');
+		this.label = this.template.content.querySelector('.label');
 		this.delButton = this.template.content.querySelector('.table-order__delete');
 		this.allSum = document.querySelector('.table-order__total-cost');
-		this.parseItem(this.table, this.template, this.img, this.title, this.price, this.value, this.total, this.delButton, this.allSum);
-		this.delItem(this.parseItem, this.table, this.template, this.img, this.title, this.price, this.value, this.total, this.delButton, this.allSum);
-		this.countItem(this.parseItem, this.table, this.template, this.img, this.title, this.price, this.value, this.total, this.delButton, this.allSum);
+		this.parseItem(this.table, this.template, this.img, this.title, this.price, this.value, this.total, this.delButton, this.allSum, this.checkbox, this.label);
+		this.delItem(this.parseItem, this.table, this.template, this.img, this.title, this.price, this.value, this.total, this.delButton, this.allSum, this.checkbox, this.label);
+		this.countItem(this.parseItem, this.table, this.template, this.img, this.title, this.price, this.value, this.total, this.delButton, this.allSum, this.checkbox, this.label);
 	}
 
-	parseItem(table, template, img, title, price, value, total, delButton, allSum) {
+	parseItem(table, template, img, title, price, value, total, delButton, allSum, checkbox, label) {
 		let sum = 0;
 		for (var i = 0; i < localStorage.length; i++) {
+			if (localStorage.key(i) === 'Данные формы') {continue}
 			let key = localStorage.key(i),
 					item = JSON.parse(key);
 
 				title.innerHTML = item.title;
+				checkbox.id = item.id;
+				label.htmlFor = item.id;
 				img.style.backgroundImage = 'url(assets/'.concat(item.guid, '.jpg)');
 				price.innerHTML = '$'.concat(item.price);
 				value.value = localStorage.getItem(key);
@@ -520,7 +550,7 @@ export class BasketPage {
 		allSum.innerHTML = '$'.concat(sum.toFixed(2));
 	}
 
-	delItem(parseItem, table, template, img, title, price, value, total, delButton, allSum) {
+	delItem(parseItem, table, template, img, title, price, value, total, delButton, allSum, checkbox, label) {
 
 		table.addEventListener('click', function(event) {
 			this.target = event.target;
@@ -532,12 +562,12 @@ export class BasketPage {
 				while (table.firstChild) {
 					table.removeChild(table.firstChild);
 				}
-				parseItem(table, template, img, title, price, value, total, delButton, allSum);
+				parseItem(table, template, img, title, price, value, total, delButton, allSum, checkbox, label);
 			}
 		});
 	}
 
-	countItem(parseItem, table, template, img, title, price, value, total, delButton, allSum) {
+	countItem(parseItem, table, template, img, title, price, value, total, delButton, allSum, checkbox, label) {
 		table.addEventListener('click', function(event) {
 			this.target = event.target;
 			if (this.target.classList.contains('counter__switch-left')) {
@@ -549,7 +579,7 @@ export class BasketPage {
 				while (table.firstChild) {
 					table.removeChild(table.firstChild);
 				}
-				parseItem(table, template, img, title, price, value, total, delButton, allSum);
+				parseItem(table, template, img, title, price, value, total, delButton, allSum, checkbox, label);
 			} else if(this.target.classList.contains('counter__switch-right')) {
 
 				let key = this.target.previousElementSibling.dataset.key;
@@ -557,7 +587,7 @@ export class BasketPage {
 				while (table.firstChild) {
 					table.removeChild(table.firstChild);
 				}
-				parseItem(table, template, img, title, price, value, total, delButton, allSum);
+				parseItem(table, template, img, title, price, value, total, delButton, allSum, checkbox, label);
 			}
 		});
 
